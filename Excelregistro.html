@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción - Fluency Breach Academy</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Estilos personalizados y animaciones -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Animación para el formulario */
+        .form-fade-in {
+            animation: formFadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes formFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Animación de entrada para cada campo del formulario */
+        .form-field {
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: fieldSlideIn 0.5s forwards ease-out;
+        }
+
+        /* Aplicar retrasos a la animación de cada campo */
+        .form-field:nth-child(1) { animation-delay: 0.2s; }
+        .form-field:nth-child(2) { animation-delay: 0.3s; }
+        .form-field:nth-child(3) { animation-delay: 0.4s; }
+        .form-field:nth-child(4) { animation-delay: 0.5s; }
+        .form-field:nth-child(5) { animation-delay: 0.6s; }
+        .form-field:nth-child(6) { animation-delay: 0.7s; }
+        .form-field:nth-child(7) { animation-delay: 0.8s; } /* Para el botón */
+
+
+        @keyframes fieldSlideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Estilo para checkboxes personalizados */
+        .custom-checkbox:checked {
+            background-color: #22d3ee;
+            border-color: #22d3ee;
+        }
+        .custom-checkbox:checked + label {
+            color: #22d3ee;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Contenedor principal con imagen de fondo -->
+    <div class="min-h-screen bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1920&auto=format&fit=crop');">
+        <div class="bg-black bg-opacity-70 min-h-screen flex flex-col justify-center items-center p-6">
+
+            <!-- Header simplificado -->
+            <header class="absolute top-0 left-0 w-full p-6">
+                <div class="container mx-auto flex justify-between items-center">
+                    <h1 class="text-3xl font-bold tracking-wider">
+                        Fluency <span class="text-cyan-400">Breach</span>
+                    </h1>
+                    <!-- Puedes agregar un botón para volver a la página principal si lo deseas -->
+                    <a href="index.html" class="font-semibold border-2 border-gray-500 text-gray-300 hover:bg-gray-700 hover:text-white rounded-full py-2 px-5 transition duration-300 hidden sm:block">
+                        &larr; Volver al inicio
+                    </a>
+                </div>
+            </header>
+
+            <!-- Contenedor del Formulario de Inscripción -->
+            <main class="w-full max-w-2xl mx-auto form-fade-in">
+                <div class="bg-gray-800 bg-opacity-90 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-2xl shadow-cyan-500/10 border border-gray-700">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-black text-white">Únete a la Aventura</h2>
+                        <p class="text-gray-400 mt-2">Completa tus datos para empezar a romper las barreras del idioma.</p>
+                    </div>
+
+                    <form id="inscriptionForm" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Nombre -->
+                            <div class="form-field">
+                                <label for="nombre" class="block mb-2 font-semibold text-gray-300">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required>
+                            </div>
+
+                            <!-- Apellido -->
+                            <div class="form-field">
+                                <label for="apellido" class="block mb-2 font-semibold text-gray-300">Apellido</label>
+                                <input type="text" id="apellido" name="apellido" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required>
+                            </div>
+
+                            <!-- Edad -->
+                            <div class="form-field">
+                                <label for="edad" class="block mb-2 font-semibold text-gray-300">Edad</label>
+                                <input type="number" id="edad" name="edad" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required>
+                            </div>
+
+                            <!-- País -->
+                            <div class="form-field">
+                                <label for="pais" class="block mb-2 font-semibold text-gray-300">País</label>
+                                <select id="pais" name="pais" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" required>
+                                    <option value="" disabled selected>Selecciona tu país</option>
+                                    <option value="peru">Perú</option>
+                                    <option value="mexico">México</option>
+                                    <option value="colombia">Colombia</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Horarios -->
+                        <div class="mt-6 form-field">
+                            <label class="block mb-3 font-semibold text-gray-300">Horarios de Preferencia</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+                                <div class="flex items-center">
+                                    <input id="horario-manana" type="checkbox" name="horario" value="manana" class="custom-checkbox h-5 w-5 rounded bg-gray-700 border-gray-600 focus:ring-cyan-500 transition">
+                                    <label for="horario-manana" class="ml-2 text-gray-300 cursor-pointer">Mañana (8am-12pm)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="horario-tarde" type="checkbox" name="horario" value="tarde" class="custom-checkbox h-5 w-5 rounded bg-gray-700 border-gray-600 focus:ring-cyan-500 transition">
+                                    <label for="horario-tarde" class="ml-2 text-gray-300 cursor-pointer">Tarde (1pm-5pm)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="horario-noche" type="checkbox" name="horario" value="noche" class="custom-checkbox h-5 w-5 rounded bg-gray-700 border-gray-600 focus:ring-cyan-500 transition">
+                                    <label for="horario-noche" class="ml-2 text-gray-300 cursor-pointer">Noche (6pm-10pm)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Número de WhatsApp -->
+                        <div class="mt-6 form-field">
+                            <label for="whatsapp" class="block mb-2 font-semibold text-gray-300">Número de WhatsApp</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" placeholder="Ej: +51 987654321" required>
+                        </div>
+                        
+                        <!-- Botón de Envío -->
+                        <div class="mt-8 form-field">
+                            <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold text-lg py-3 rounded-lg transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed">
+                                ¡Inscribirme Ahora!
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    
+    <script>
+        // --- INICIO DE LA LÓGICA DE CONEXIÓN ---
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx3nDY2c5nF7KcZ0Fud8wh9EnAjglnn5vMo6UYlrbMbmsNMqzjOGZ22oxgjvd_OUYYE/exec"; 
+
+        const form = document.getElementById('inscriptionForm');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario.
+
+            // Deshabilita el botón para prevenir envíos múltiples mientras se procesa.
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            // Validación de campos requeridos.
+            let isValid = true;
+            const requiredFields = form.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('border-red-500', 'focus:ring-red-500');
+                    field.classList.remove('focus:ring-cyan-400');
+                } else {
+                    field.classList.remove('border-red-500', 'focus:ring-red-500');
+                    field.classList.add('focus:ring-cyan-400');
+                }
+            });
+
+            if (isValid) {
+                // Si el formulario es válido, se procede a enviar los datos.
+                const formData = new FormData(form);
+
+                // Maneja los checkboxes de horarios para enviarlos como un solo texto.
+                const horariosSeleccionados = [];
+                document.querySelectorAll('input[name="horario"]:checked').forEach(checkbox => {
+                    horariosSeleccionados.push(checkbox.value);
+                });
+                
+                // Agrega los horarios como un string separado por comas.
+                formData.set('horarios', horariosSeleccionados.join(', '));
+
+                // Envía los datos al script de Google usando fetch.
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        showSuccessMessage();
+                        form.reset(); // Limpia el formulario tras el éxito.
+                    } else {
+                        // Muestra un error si el script devuelve una respuesta fallida.
+                        console.error('Error del script:', data.message);
+                        showErrorMessage('Ocurrió un error al enviar tus datos. Inténtalo de nuevo.');
+                    }
+                })
+                .catch(error => {
+                    // Muestra un error si hay un problema de red o conexión.
+                    console.error('Error en la conexión:', error);
+                    showErrorMessage('Error de conexión. Revisa tu internet e inténtalo de nuevo.');
+                })
+                .finally(() => {
+                    // Rehabilita el botón sin importar el resultado.
+                    submitButton.disabled = false;
+                    submitButton.textContent = '¡Inscribirme Ahora!';
+                });
+            } else {
+                // Si el formulario no es válido, muestra un mensaje y rehabilita el botón.
+                showErrorMessage('Por favor, completa todos los campos requeridos.');
+                submitButton.disabled = false;
+                submitButton.textContent = '¡Inscribirme Ahora!';
+            }
+        });
+        
+        // --- FIN DE LA LÓGICA DE CONEXIÓN ---
+
+        
+        function showSuccessMessage() {
+            removeMessageBox();
+            const messageBox = createMessageBox('#22c55e'); // Color verde
+            messageBox.innerHTML = '<strong class="font-bold">¡Inscripción Exitosa!</strong><p class="text-sm">Nos pondremos en contacto contigo pronto.</p>';
+            document.body.appendChild(messageBox);
+            setTimeout(removeMessageBox, 5000); // Desaparece después de 5 segundos
+        }
+        
+        function showErrorMessage(message) {
+            removeMessageBox();
+            const messageBox = createMessageBox('#ef4444'); // Color rojo
+            messageBox.innerText = message;
+            document.body.appendChild(messageBox);
+            setTimeout(removeMessageBox, 4000); // Desaparece después de 4 segundos
+        }
+
+        function createMessageBox(bgColor) {
+            const messageBox = document.createElement('div');
+            messageBox.id = 'messageBox';
+            messageBox.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 16px 24px;
+                background-color: ${bgColor};
+                color: #ffffff;
+                border-radius: 8px;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                text-align: center;
+                transition: opacity 0.3s ease;
+            `;
+            return messageBox;
+        }
+
+        function removeMessageBox() {
+            const existingBox = document.getElementById('messageBox');
+            if (existingBox) {
+                existingBox.style.opacity = '0';
+                setTimeout(() => document.body.removeChild(existingBox), 300);
+            }
+        }
+    </script>
+</body>
+</html>
